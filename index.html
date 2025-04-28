@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tosads PDF Watermark</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        input, button {
-            margin: 10px 0;
-            display: block;
-        }
-    </style>
-    <script defer src="script.js"></script>
-</head>
 <body>
-    <h1>أضف علامة مائية إلى PDF</h1>
 
-    <label>اختر ملف PDF:</label>
+    <label>اختر ملف PDF:</label> <br>
     <input type="file" id="pdf-upload" accept="application/pdf">
-
-    <label>اختر صورة العلامة المائية:</label>
+<br>
+<br>
+    <label>اختر صورة العلامة المائية:</label> <br>
     <input type="file" id="image-upload" accept="image/*">
-
-    <button id="process">أضف العلامة المائية واحفظ</button>
+<br>
+<br>
+    <label>اختر صورة الغلاف الأمامي:</label> <br>
+    <input type="file" id="cover-front-upload" accept="image/*">
+<br>
+<br>
+    <label>اختر صورة الغلاف الخلفي:</label> <br>
+    <input type="file" id="cover-back-upload" accept="image/*">
+<br>
+<br>
+    <button id="process">ابدأ المعالجة وحفظ PDF</button>
+<br>
+<br>
+    <p id="status" style="color: green; font-weight: bold;"></p> <!-- هنا سنعرض حالة التحميل -->
 
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
