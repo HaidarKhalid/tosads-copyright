@@ -1,26 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معالج PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="file"], input[type="range"], input[type="number"], input[type="checkbox"] {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .range-label {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        .status {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
 <body>
 
-    <label>اختر ملف PDF:</label> <br>
-    <input type="file" id="pdf-upload" accept="application/pdf">
-<br>
-<br>
-    <label>اختر صورة العلامة المائية:</label> <br>
-    <input type="file" id="image-upload" accept="image/*">
-<br>
-<br>
-    <label>اختر صورة الغلاف الأمامي:</label> <br>
-    <input type="file" id="cover-front-upload" accept="image/*">
-<br>
-<br>
-    <label>اختر صورة الغلاف الخلفي:</label> <br>
-    <input type="file" id="cover-back-upload" accept="image/*">
-<br>
-<br>
-    <button id="process">ابدأ المعالجة وحفظ PDF</button>
-<br>
-<br>
-    <p id="status" style="color: green; font-weight: bold;"></p> <!-- هنا سنعرض حالة التحميل -->
+    <h1>معالج PDF - إضافة علامة مائية و غلاف</h1>
 
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <div class="container">
+        <label for="pdf-upload">اختر ملف PDF</label>
+        <input type="file" id="pdf-upload" accept=".pdf" required>
+
+        <label for="image-upload">اختر صورة العلامة المائية (اختياري)</label>
+        <input type="file" id="image-upload" accept="image/*">
+
+        <label for="opacity">تحكم في الشفافية (من 0 إلى 1)</label>
+        <input type="number" id="opacity" min="0" max="1" step="0.1" value="0.2">
+
+        <label for="scale">تحكم في حجم العلامة المائية (من 0 إلى 1)</label>
+        <input type="number" id="scale" min="0" max="1" step="0.05" value="0.13">
+
+        <label for="auto-cover">استخدام الغلاف التلقائي</label>
+        <input style="width: 30px;" type="checkbox" id="auto-cover">
+
+        <label for="cover-front-upload">اختر الغلاف الأمامي (اختياري)</label>
+        <input type="file" id="cover-front-upload" accept="image/*">
+
+        <label for="cover-back-upload">اختر الغلاف الخلفي (اختياري)</label>
+        <input type="file" id="cover-back-upload" accept="image/*">
+
+        <button id="process">معالجة PDF</button>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="script.js"></script>
 </body>
+</html>
