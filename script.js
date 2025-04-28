@@ -32,6 +32,6 @@ processButton.addEventListener('click', async () => {
     const blob = new Blob([pdfBytesNew], { type: 'application/pdf' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = "حقوق" + pdfInput.files[0].name;
+    link.download = "حقوق " + pdfInput.files[0].name;
     link.click();
 });
